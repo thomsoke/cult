@@ -27,7 +27,6 @@ class Leader : public Profile
     virtual void choose_traits();
     virtual void choose_seeking();
 
-
     string get_type();
     string get_name();
     int get_age();
@@ -36,7 +35,6 @@ class Leader : public Profile
     string get_traits();
     void print_traits();
     string get_seeking();
-
 
 
   protected:

@@ -68,6 +68,13 @@ void Leader::choose_type()
 ********************************************************************/
 void Leader::choose_name()
 {
+  string input = "";
+
+  cout << "please enter your first name" << endl;
+  cout << " input name:" << endl;
+
+  getline(cin, input);
+  name = input;
 
 }
 
@@ -75,7 +82,13 @@ void Leader::choose_name()
 ********************************************************************/
 void Leader::choose_age()
 {
+  int input = 0;
 
+  cout << "please enter your age" << endl;
+  cout << " input age:" << endl;
+
+  cin >> input;
+  age = input;
 }
 
 /********************************************************************
@@ -96,7 +109,7 @@ void Leader::choose_relocate()
   }
   else if (input == 'n')
   {
-    relocate = true;
+    relocate = false;
   }
   else
   {
@@ -108,6 +121,12 @@ void Leader::choose_relocate()
 ********************************************************************/
 void Leader::choose_description()
 {
+  string input = "";
+
+  cout << "please enter a short bio to display on your profile" << endl;
+
+  getline(cin, input);
+  description = input;
 
 }
 

@@ -32,6 +32,12 @@ do
 {
 
   Leader l;
+
+
+  l.choose_name();
+  l.choose_age();
+  cout << "TEST print name, age: " << l.get_name() << ", " << l.get_age() << endl;
+
   l.choose_type();
   cout << "TEST print type: " << l.get_type() << endl << endl;
 
@@ -49,9 +55,33 @@ do
   l.print_traits();
 
 
+  l.choose_description();
+  cout << "TEST print description: " << l.get_description() << endl;
+
+//////// test profile view
+
+cout << "  VIEW YOUR PROFILE" << endl;
+cout << "~~~~~~~~~~~~~~~~~~~~~" << endl;
+cout << "NAME, AGE: " << l.get_name() << ", " << l.get_age() << endl;
+cout << "TYPE: " << l.get_type() << endl;
+cout << "SEEKING: " << l.get_seeking() << endl;
+cout << "WILLING 2 RELOCATE: ";
+  if (l.get_relocate() == 1)
+  {
+    cout << "true" << endl;
+  }
+  else
+  {
+    cout << "false" << endl;
+  }
+cout << "TRAITS: ";
+l.print_traits();
+cout << "DESCRIPTION: " << l.get_description() << endl;
 
 
 
+
+game = true;
 
 } while (!game);
 //~e
