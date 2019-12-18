@@ -232,7 +232,7 @@ void Leader::print_traits()
 {
   for(int i = 0; i < 6; i++)
   {
-    cout << traits[i] << endl;
+    cout << " ~ " << traits[i] << endl;
   }
 }
 

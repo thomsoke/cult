@@ -58,8 +58,13 @@ do
   l.choose_description();
   cout << "TEST print description: " << l.get_description() << endl;
 
-//////// test profile view
 
+
+
+//////// test profile view
+cout << endl;
+cout << endl;
+cout << "~~~~~~~~~~~~~~~~~~~~~" << endl;
 cout << "  VIEW YOUR PROFILE" << endl;
 cout << "~~~~~~~~~~~~~~~~~~~~~" << endl;
 cout << "NAME, AGE: " << l.get_name() << ", " << l.get_age() << endl;
@@ -78,7 +83,8 @@ cout << "TRAITS: ";
 l.print_traits();
 cout << "DESCRIPTION: " << l.get_description() << endl;
 
-
+cout << endl;
+cout << endl;
 
 
 game = true;
