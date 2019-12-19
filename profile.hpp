@@ -23,6 +23,16 @@ class Profile
     virtual void choose_traits() = 0;
     virtual void choose_seeking() = 0;
 
+/*
+    virtual string get_type() = 0;
+    virtual string get_name() = 0;
+    virtual int get_age() = 0;
+    virtual bool get_relocate() = 0;
+    virtual string get_description() = 0;
+    virtual string get_traits() = 0;
+    virtual void print_traits() = 0;
+    virtual string get_seeking() = 0;
+*/
 
   protected:
     string type;

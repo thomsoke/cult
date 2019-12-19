@@ -5,9 +5,12 @@
 ** description: main
 *********************************************************************/
 #include <iostream>
+#include <string>
 
+#include "admin.hpp"
 #include "profile.hpp"
 #include "leader.hpp"
+#include "admin.hpp"
 
 using namespace std;
 
@@ -25,8 +28,22 @@ cout << "now let's get to know you so we can find your match..." << endl;
 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
 
+
+Admin a;
+
+a.create_profile();
+a.create_profile();
+a.print_profiles();
+
+
+
+
+
+
+
 //~s eventually move contents of this do while into "create profile" type function
 // where user will create new profile instance and add all their info
+/*
 bool game = false;
 do
 {
@@ -62,6 +79,7 @@ do
 
 
 //////// test profile view
+
 cout << endl;
 cout << endl;
 cout << "~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -87,10 +105,16 @@ cout << endl;
 cout << endl;
 
 
+
 game = true;
 
 } while (!game);
 //~e
+*/
+
+
+
+
 
 return 0;
 }

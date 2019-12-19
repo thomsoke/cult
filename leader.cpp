@@ -71,7 +71,7 @@ void Leader::choose_name()
   string input = "";
 
   cout << "please enter your first name" << endl;
-  cout << " input name:" << endl;
+  cout << " * input name:" << endl;
 
   getline(cin, input);
   name = input;
@@ -85,7 +85,7 @@ void Leader::choose_age()
   int input = 0;
 
   cout << "please enter your age" << endl;
-  cout << " input age:" << endl;
+  cout << " * input age:" << endl;
 
   cin >> input;
   age = input;
@@ -99,7 +99,7 @@ void Leader::choose_relocate()
 
   cout << "are you willing to relocate?" << endl;
   cout << "enter 'y' or 'n'" << endl;
-  cout << " input selection:" << endl;
+  cout << " * input selection:" << endl;
 
   cin >> input;
 
@@ -124,7 +124,7 @@ void Leader::choose_description()
   string input = "";
 
   cout << "please enter a short bio to display on your profile" << endl;
-
+  cout << " * input description:" << endl;
   getline(cin, input);
   description = input;
 
@@ -138,7 +138,7 @@ void Leader::choose_traits()
 
   cout << "now let's get a little more information to help match you" << endl;
   cout << "think of 5 traits that best describe you and your personality" << endl;
-  cout << " input traits:" << endl;
+  cout << " * input traits:" << endl;
 
   for(int i = 0; i < 6; i++)
   {
@@ -158,7 +158,7 @@ void Leader::choose_seeking()
   cout << " enter 1 if you are looking for followers" << endl;
   cout << " enter 2 if you are looking for a leader" << endl;
   cout << " enter 3 if you are undecided" << endl;
-  cout << " input selection:" << endl;
+  cout << " * input selection:" << endl;
 
   cin >> input;
 
@@ -224,6 +224,7 @@ string Leader::get_traits()
   {
     return traits[i];
   }
+  return 0;
 }
 
 /********************************************************************
@@ -242,48 +243,3 @@ string Leader::get_seeking()
 {
   return seeking;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/********************************************************************
-********************************************************************/
-
-
-/*********************************************************************
-** function: parameterized constructor
-*********************************************************************/
-/*
-MinotaurSpace::MinotaurSpace(string description)
-{
-  this->description = description;
-  clear_exits();
-  clear_items();
-  player_health = 0;
-  minotaur_health = 0;
-  player_roll = 0;
-  minotaur_roll = 0;
-  dead = false;
-}
-*/
-
-/*********************************************************************
-** function: *
-** arguments: *
-** returns: *
-*********************************************************************/

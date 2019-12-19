@@ -27,14 +27,14 @@ class Leader : public Profile
     virtual void choose_traits();
     virtual void choose_seeking();
 
-    string get_type();
-    string get_name();
-    int get_age();
-    bool get_relocate();
-    string get_description();
-    string get_traits();
-    void print_traits();
-    string get_seeking();
+    virtual string get_type();
+    virtual string get_name();
+    virtual int get_age();
+    virtual bool get_relocate();
+    virtual string get_description();
+    virtual string get_traits();
+    virtual void print_traits();
+    virtual string get_seeking();
 
 
   protected:
@@ -47,30 +47,3 @@ class Leader : public Profile
 };
 
 #endif
-
-
-
-
-
-
-/********************************************************************
-********************************************************************/
-/*
-  public:
-    MinotaurSpace(string description);
-    virtual bool do_menu(Player* player);
-
-  protected:
-    int player_health;
-    int minotaur_health;
-    int player_roll;
-    int minotaur_roll;
-    bool dead;
-
-  private:
-
-};
-
-
-#endif
-*/
