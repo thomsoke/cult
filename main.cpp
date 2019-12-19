@@ -7,16 +7,17 @@
 #include <iostream>
 #include <string>
 
+#include "interface.hpp"
 #include "admin.hpp"
 #include "profile.hpp"
 #include "leader.hpp"
-#include "admin.hpp"
 
 using namespace std;
 
 int main()
 {
 // eventually move this to a class funct
+// in Interface
 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 cout << "<3<3<3 welcome to CULT CATCH, a program for connecting people <3<3<3" << endl;
 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;

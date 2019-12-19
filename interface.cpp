@@ -1,17 +1,17 @@
 /********************************************************************
-** program name: cult dating app / run.cpp
+** program name: cult dating app / interface.cpp
 ** author: kelly thomson
 ** date: 12-16-2019
-** description: run class source
+** description: interface class source
 ********************************************************************/
-#include "run.hpp"
+#include "interface.hpp"
 
 #include <iostream>
 
 /*********************************************************************
 ** function: default constructor
 *********************************************************************/
-Run::Run()
+Interface::Interface()
 {
 
 }
@@ -19,19 +19,37 @@ Run::Run()
 /*********************************************************************
 ** function: destructor
 *********************************************************************/
-Run::~Run()
+Interface::~Interface()
 {
 }
 
+
 /********************************************************************
 ********************************************************************/
-void Run::run_app()
+void Interface::run_as_admin()
 {
   bool complete = false;
   do
   {
 
+// stuff
 
+
+  complete = true;
+
+} while (!complete);
+}
+
+
+/********************************************************************
+********************************************************************/
+void Interface::run_as_user()
+{
+  bool complete = false;
+  do
+  {
+
+// stuff
 
 
   complete = true;

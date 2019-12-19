@@ -68,12 +68,13 @@ void Leader::choose_type()
 ********************************************************************/
 void Leader::choose_name()
 {
-  string input;
+
 
   cout << "please enter your first name" << endl;
   cout << " * input name:" << endl;
 
 cout << "name before assignment is: " << name << endl;
+string input;
 
   getline(cin, input);
 
@@ -121,29 +122,12 @@ void Leader::choose_relocate()
       relocate = false;
       break;
 
-
     default:
       cout << "invalid input" << endl;
       break;
 
     }
 }
-
-
-/*    // using switch instead for error handling
-if (input == 'y')
-{
-  relocate = true;
-}
-else if (input == 'n')
-{
-  relocate = true;
-}
-else
-{
-  cout << "invalid input" << endl;
-}
-*/
 
 /********************************************************************
 ********************************************************************/

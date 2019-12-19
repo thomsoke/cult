@@ -32,7 +32,6 @@ at first available index
 ********************************************************************/
 void Admin::create_profile()
 {
-  int input = ' ';
   Leader* return_profile = new Leader;
 
   cout << endl;
@@ -41,9 +40,9 @@ void Admin::create_profile()
   cout << endl;
 
   return_profile->choose_name();
-  cout << "test after name" << endl;
+cout << "test after name" << endl;
   return_profile->choose_age();
-  cout << "test after age" << endl;
+cout << "test after age" << endl;
   return_profile->choose_type();
   return_profile->choose_seeking();
   return_profile->choose_relocate();

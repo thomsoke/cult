@@ -1,11 +1,11 @@
 /********************************************************************
-** program name: cult dating app / run.hpp
+** program name: cult dating app / interface.hpp
 ** author: kelly thomson
 ** date: 12-16-2019
-** description: run class header
+** description: interface class header
 ********************************************************************/
-#ifndef RUN_HPP
-#define RUN_HPP
+#ifndef INTERFACE_HPP
+#define INTERFACE_HPP
 
 #include <string>
 #include <iostream>
@@ -14,18 +14,17 @@
 
 using namespace std;
 
-class Run
+class Interface
 {
   public:
-    Run();
-    ~Run();
-    void run_app();
+    Interface();
+    ~Interface();
+    void run_as_admin();
+    void run_as_user();
 
   protected:
 
   private:
-//    Profile* profiles[5];   // keep in user??
-
 
 
 };
