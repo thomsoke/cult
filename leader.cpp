@@ -68,13 +68,18 @@ void Leader::choose_type()
 ********************************************************************/
 void Leader::choose_name()
 {
-  string input = "";
+  string input;
 
   cout << "please enter your first name" << endl;
   cout << " * input name:" << endl;
 
+cout << "name before assignment is: " << name << endl;
+
   getline(cin, input);
+
   name = input;
+
+cout << "name after assignment is: " << name << endl;
 
 }
 
@@ -85,9 +90,12 @@ void Leader::choose_age()
   int input = 0;
 
   cout << "please enter your age" << endl;
-  cout << " * input age:" << endl;
+  do
+  {
+    cout << " * input age:" << endl;
+    cin >> input;
+  } while(input >= 101 || input <= 0);     // check valid age
 
-  cin >> input;
   age = input;
 }
 
@@ -103,19 +111,39 @@ void Leader::choose_relocate()
 
   cin >> input;
 
-  if (input == 'y')
+  switch (input)
   {
-    relocate = true;
-  }
-  else if (input == 'n')
-  {
-    relocate = false;
-  }
-  else
-  {
-    cout << "invalid input" << endl;
-  }
+    case 'y':
+      relocate = true;
+      break;
+
+    case 'n':
+      relocate = false;
+      break;
+
+
+    default:
+      cout << "invalid input" << endl;
+      break;
+
+    }
 }
+
+
+/*    // using switch instead for error handling
+if (input == 'y')
+{
+  relocate = true;
+}
+else if (input == 'n')
+{
+  relocate = true;
+}
+else
+{
+  cout << "invalid input" << endl;
+}
+*/
 
 /********************************************************************
 ********************************************************************/
@@ -174,6 +202,10 @@ void Leader::choose_seeking()
 
     case 3:
       seeking = "undecided";
+      break;
+
+    default:
+      cout << "invalid input" << endl;
       break;
 
   }

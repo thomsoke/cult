@@ -41,7 +41,9 @@ void Admin::create_profile()
   cout << endl;
 
   return_profile->choose_name();
+  cout << "test after name" << endl;
   return_profile->choose_age();
+  cout << "test after age" << endl;
   return_profile->choose_type();
   return_profile->choose_seeking();
   return_profile->choose_relocate();
@@ -100,9 +102,9 @@ void Admin::print_profiles()
       //////// test profile view
 
       cout << endl;
-      cout << "~~~~~~~~~~~~~~~~~~~~~" << endl;
-      cout << "USER " << i + 1 << endl;
-      cout << "~~~~~~~~~~~~~~~~~~~~~" << endl;
+      cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+      cout << "* USER " << i + 1 << " *" << endl;
+      cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
       cout << "NAME, AGE: " << profiles[i]->get_name() << ", " << profiles[i]->get_age() << endl;
       cout << "TYPE: " << profiles[i]->get_type() << endl;
       cout << "SEEKING: " << profiles[i]->get_seeking() << endl;

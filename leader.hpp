@@ -8,6 +8,7 @@
 #define LEADER_HPP
 
 #include <iostream>
+#include <string>
 
 #include "profile.hpp"
 

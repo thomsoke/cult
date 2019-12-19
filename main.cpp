@@ -23,19 +23,57 @@ cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" <
 cout << "using this software, we match potential cult leaders" << endl;
 cout << "and potential cult followers so existing cults can increase" << endl;
 cout << "their numbers, and new cults can be created!" << endl;
-cout << endl;
-cout << "now let's get to know you so we can find your match..." << endl;
 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+cout << endl;
 
 
 
 Admin a;
 
-a.create_profile();
-a.create_profile();
-a.print_profiles();
+bool quit = false;
+
+do
+{
+
+  cout << "enter 'a' to add a new profile" << endl;
+  cout << "enter 'v' to view current profiles" << endl;
+  cout << "enter 'q' to quit" << endl;
+
+  char input = ' ';
+  cin >> input;
+
+// currently something in here is an infinite loop....
+  switch (input)
+  {
+    case 'a':
+      cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+      cout << "   ADD NEW PROFILE" << endl;
+      cout << "   let's get to know you so we can find your match..." << endl;
+      cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+      a.create_profile();
+      break;
+
+    case 'v':
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "   PRINT CURRENT PROFILES   " << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+      a.print_profiles();
+      break;
+
+    case 'q' :
+      cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+      cout << "   QUIT MENU" << endl;
+      cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+      quit = true;
+      break;
+
+    default:
+      cout << "invalid" << endl;
+      break;
+  }
 
 
+} while(!quit);
 
 
 
