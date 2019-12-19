@@ -19,18 +19,66 @@ Admin::Admin()
 }
 
 /*********************************************************************
+** function: parameterized constructor
+*********************************************************************/
+Admin::Admin(int p)
+{
+  password = p;
+  for (int i = 0; i < 4; i++)
+  {
+    profiles[i] = NULL;
+  }
+  is_admin = true;
+}
+
+
+/*********************************************************************
 ** function: destructor
 *********************************************************************/
 Admin::~Admin()
 {
 }
 
+
+
+/*********************************************************************
+*********************************************************************/
+bool Admin::get_is_admin()
+{
+  return is_admin;
+}
+
+/*********************************************************************
+*********************************************************************/
+void Admin::set_is_admin(bool a)
+{
+  is_admin = a;
+}
+
+
+
+/*********************************************************************
+*********************************************************************/
+int Admin::get_password()
+{
+  return password;
+}
+
+/*********************************************************************
+*********************************************************************/
+void Admin::set_password(int p)
+{
+  password = p;
+}
+
+
+
 /********************************************************************
 ** creates new profile
 ** passes profile into add_profile function to add to profile array
 at first available index
 ********************************************************************/
-void Admin::create_profile()
+void Admin::create_leader()
 {
   Leader* return_profile = new Leader;
 
@@ -49,7 +97,7 @@ cout << "test after age" << endl;
   return_profile->choose_traits();
   return_profile->choose_description();
 
-  add_profile(return_profile);
+  add_leader(return_profile);
 
 }
 
@@ -57,7 +105,7 @@ cout << "test after age" << endl;
 /********************************************************************
 ** adds new profile to profile array at index
 ********************************************************************/
-void Admin::add_profile(Leader* profile)
+void Admin::add_leader(Leader* profile)
 {
   int profile_slot = get_avail_profile_slot();
   if (profile_slot != -1)
@@ -67,6 +115,61 @@ void Admin::add_profile(Leader* profile)
   else
     cout << "no available room for new profiles" << endl;
 }
+
+
+
+
+
+
+
+
+/********************************************************************
+** creates new profile
+** passes profile into add_profile function to add to profile array
+at first available index
+********************************************************************/
+/*
+void Admin::create_follower()
+{
+  Follower* return_profile = new Follower;
+
+  cout << endl;
+  cout << endl;
+  cout << " *** create your profile *** " << endl;
+  cout << endl;
+
+  return_profile->choose_name();
+cout << "test after name" << endl;
+  return_profile->choose_age();
+cout << "test after age" << endl;
+  return_profile->choose_type();
+  return_profile->choose_seeking();
+  return_profile->choose_relocate();
+  return_profile->choose_traits();
+  return_profile->choose_description();
+
+  add_follower(return_profile);
+
+}
+*/
+
+
+/********************************************************************
+** adds new profile to profile array at index
+********************************************************************/
+/*
+void Admin::add_leader(Follower* profile)
+{
+  int profile_slot = get_avail_profile_slot();
+  if (profile_slot != -1)
+  {
+    profiles[profile_slot] = profile;
+  }
+  else
+    cout << "no available room for new profiles" << endl;
+}
+*/
+
 
 
 /********************************************************************

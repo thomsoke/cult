@@ -16,18 +16,36 @@ using namespace std;
 
 int main()
 {
-// eventually move this to a class funct
-// in Interface
-cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-cout << "<3<3<3 welcome to CULT CATCH, a program for connecting people <3<3<3" << endl;
-cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-cout << "using this software, we match potential cult leaders" << endl;
-cout << "and potential cult followers so existing cults can increase" << endl;
-cout << "their numbers, and new cults can be created!" << endl;
-cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-cout << endl;
+
+  
+  Interface i;
+  i.display_menu();
 
 
+return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 Admin a;
 
@@ -35,6 +53,12 @@ bool quit = false;
 
 do
 {
+
+
+
+
+
+
 
   cout << "enter 'a' to add a new profile" << endl;
   cout << "enter 'v' to view current profiles" << endl;
@@ -51,7 +75,7 @@ do
       cout << "   ADD NEW PROFILE" << endl;
       cout << "   let's get to know you so we can find your match..." << endl;
       cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-      a.create_profile();
+      a.create_leader();
       break;
 
     case 'v':
@@ -82,7 +106,7 @@ do
 
 //~s eventually move contents of this do while into "create profile" type function
 // where user will create new profile instance and add all their info
-/*
+
 bool game = false;
 do
 {
@@ -149,14 +173,6 @@ game = true;
 
 } while (!game);
 //~e
-*/
-
-
-
-
-
-return 0;
-}
 
 
 
@@ -165,7 +181,13 @@ return 0;
 
 
 
-/*
+
+
+
+
+
+
+
 // image?
 
 [NAME], [AGE] years old
