@@ -14,8 +14,12 @@
 Interface::Interface()
 {
   quit = false;
-  admin = false;
+//  curr_admin = false;
   password = 00000;
+  for (int i = 0; i < 1; i++)
+  {
+    admin[i] = NULL;
+  }
 }
 
 /*********************************************************************
@@ -89,26 +93,43 @@ void Interface::create_new_admin()
   cout << " welcome, ADMIN" << endl;
   cout << " let's set up your account" << endl;
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    int temp_pass;
-    cout << " enter a 5 digit password for your account:" << endl;
 
-    do
-    {
-      cin >> temp_pass;
-    } while (temp_pass >= 99999 && temp_pass <= 00000);
+  Admin* new_admin = new Admin;
+  int temp_pass;
 
-    Admin a(temp_pass);
+  cout << " enter a 5 digit password for your account:" << endl;
+  new_admin->set_password(temp_pass);
 
+  add_admin(new_admin);
 
-    cout << a.get_password();
 }
 
+/********************************************************************
+********************************************************************/
+void Interface::add_admin(Admin* new_admin)
+{
+  int admin_slot = get_avail_admin_slot();
+  if (admin_slot != -1)
+  {
+    admin[admin_slot] = new_admin;
+  }
+  else
+    cout << "no available room for new profiles" << endl;
+}
 
-
-
-
-
-
+/********************************************************************
+********************************************************************/
+int Interface::get_avail_admin_slot()
+{
+  for (int i = 0; i < 1; i++)
+  {
+    if (admin[i] == NULL)
+    {
+      return i;
+    }
+  }
+  return -1;
+}
 
 
 
@@ -166,8 +187,8 @@ switch (temp)
       cout << " password:" << endl;
       int pass_attempt;
       cin >> pass_attempt;
-
-      if (admin.get_is_admin() == true)
+/*
+      if (admin.get_is_admin())
         if (pass_attempt != admin.get_password())
         {
           cout << "wrong password" << endl;
@@ -176,7 +197,11 @@ switch (temp)
         {
           cout << "you got it right dooderino" << endl;
         }
-
+        else
+        {
+          cout << "whatever" << endl;
+        }
+*/
 
 
 
@@ -196,7 +221,7 @@ switch (temp)
   {
 
 
-    create_admin();
+    create_new_admin();
 
 
     /*

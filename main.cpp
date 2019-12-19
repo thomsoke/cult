@@ -17,7 +17,7 @@ using namespace std;
 int main()
 {
 
-  
+  Admin a;
   Interface i;
   i.display_menu();
 
