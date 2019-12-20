@@ -22,28 +22,18 @@ class Admin
     Admin(int password);
     ~Admin();
 
-    bool get_is_admin();
-    void set_is_admin(bool a);
     int get_password();
     void set_password(int p);
-
-
-    void create_leader();
-    void add_leader(Leader* profile);
-//    void create_follower();
-//    void add_leader(Follower* profile);
+    bool has_password();
+    void add_leader();
     int get_avail_profile_slot();
     void print_profiles();
 
   protected:
 
   private:
-    bool is_admin;
     int password;
-    Leader* profiles[5];
-  // Follower* profiles[5];
-
-
+    Profile* profile[10];
 
 };
 
@@ -57,5 +47,3 @@ class Admin
 // compare profies
 // match profiles
 // send msg to users
-//
-//

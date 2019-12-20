@@ -6,15 +6,15 @@
 ********************************************************************/
 #include "admin.hpp"
 
-
 /*********************************************************************
 ** function: parameterized constructor
 *********************************************************************/
 Admin::Admin()
 {
+  password = 0;
   for (int i = 0; i < 4; i++)
   {
-    profiles[i] = NULL;
+    profile[i] = NULL;
   }
 }
 
@@ -24,13 +24,11 @@ Admin::Admin()
 Admin::Admin(int p)
 {
   password = p;
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 10; i++)
   {
-    profiles[i] = NULL;
+    profile[i] = NULL;
   }
-  is_admin = true;
 }
-
 
 /*********************************************************************
 ** function: destructor
@@ -38,24 +36,6 @@ Admin::Admin(int p)
 Admin::~Admin()
 {
 }
-
-
-
-/*********************************************************************
-*********************************************************************/
-bool Admin::get_is_admin()
-{
-  return is_admin;
-}
-
-/*********************************************************************
-*********************************************************************/
-void Admin::set_is_admin(bool a)
-{
-  is_admin = a;
-}
-
-
 
 /*********************************************************************
 *********************************************************************/
@@ -71,115 +51,60 @@ void Admin::set_password(int p)
   password = p;
 }
 
-
-
-/********************************************************************
-** creates new profile
-** passes profile into add_profile function to add to profile array
-at first available index
-********************************************************************/
-void Admin::create_leader()
+/*********************************************************************
+*********************************************************************/
+bool Admin::has_password()
 {
-  Leader* return_profile = new Leader;
-
-  cout << endl;
-  cout << endl;
-  cout << " *** create your profile *** " << endl;
-  cout << endl;
-
-  return_profile->choose_name();
-cout << "test after name" << endl;
-  return_profile->choose_age();
-cout << "test after age" << endl;
-  return_profile->choose_type();
-  return_profile->choose_seeking();
-  return_profile->choose_relocate();
-  return_profile->choose_traits();
-  return_profile->choose_description();
-
-  add_leader(return_profile);
-
+  if (password == 0)
+  {
+    return false;
+  }
+  else
+  {
+    return true;
+  }
 }
-
 
 /********************************************************************
 ** adds new profile to profile array at index
 ********************************************************************/
-void Admin::add_leader(Leader* profile)
+//void Admin::add_leader(Leader* leader)
+void Admin::add_leader()
 {
   int profile_slot = get_avail_profile_slot();
   if (profile_slot != -1)
   {
-    profiles[profile_slot] = profile;
+    profile[profile_slot] = new Leader;
+
+    cout << endl;
+    cout << endl;
+    cout << " *** create your profile *** " << endl;
+    cout << endl;
+
+    profile[profile_slot]->choose_name();
+      cout << "test after name" << endl;
+    profile[profile_slot]->choose_age();
+      cout << "test after age" << endl;
+    profile[profile_slot]->choose_type();
+    profile[profile_slot]->choose_seeking();
+    profile[profile_slot]->choose_relocate();
+    profile[profile_slot]->choose_traits();
+    profile[profile_slot]->choose_description();
+
   }
   else
     cout << "no available room for new profiles" << endl;
 }
-
-
-
-
-
-
-
-
-/********************************************************************
-** creates new profile
-** passes profile into add_profile function to add to profile array
-at first available index
-********************************************************************/
-/*
-void Admin::create_follower()
-{
-  Follower* return_profile = new Follower;
-
-  cout << endl;
-  cout << endl;
-  cout << " *** create your profile *** " << endl;
-  cout << endl;
-
-  return_profile->choose_name();
-cout << "test after name" << endl;
-  return_profile->choose_age();
-cout << "test after age" << endl;
-  return_profile->choose_type();
-  return_profile->choose_seeking();
-  return_profile->choose_relocate();
-  return_profile->choose_traits();
-  return_profile->choose_description();
-
-  add_follower(return_profile);
-
-}
-*/
-
-
-/********************************************************************
-** adds new profile to profile array at index
-********************************************************************/
-/*
-void Admin::add_leader(Follower* profile)
-{
-  int profile_slot = get_avail_profile_slot();
-  if (profile_slot != -1)
-  {
-    profiles[profile_slot] = profile;
-  }
-  else
-    cout << "no available room for new profiles" << endl;
-}
-*/
-
-
 
 /********************************************************************
 ** returns a free slot to make a profile object
 ********************************************************************/
+///// need for each type???
 int Admin::get_avail_profile_slot()
 {
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 10; i++)
   {
-    if (profiles[i] == NULL)
+    if (profile[i] == NULL)
     {
       return i;
     }
@@ -187,31 +112,30 @@ int Admin::get_avail_profile_slot()
   return -1;
 }
 
-
 /********************************************************************
 ** prints all profiles
 ********************************************************************/
+///// need for each type???
 void Admin::print_profiles()
 {
   cout << endl;
   cout << endl;
   cout << " * USER PROFILES * " << endl;
-  for (int i =0; i < 4; i++)
+  for (int i =0; i < 10; i++)
   {
-    if (profiles[i] != NULL)
+    if (profile[i] != NULL)
     {
 
       //////// test profile view
-
       cout << endl;
       cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
       cout << "* USER " << i + 1 << " *" << endl;
       cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-      cout << "NAME, AGE: " << profiles[i]->get_name() << ", " << profiles[i]->get_age() << endl;
-      cout << "TYPE: " << profiles[i]->get_type() << endl;
-      cout << "SEEKING: " << profiles[i]->get_seeking() << endl;
+      cout << "NAME, AGE: " << profile[i]->get_name() << ", " << profile[i]->get_age() << endl;
+      cout << "TYPE: " << profile[i]->get_type() << endl;
+      cout << "SEEKING: " << profile[i]->get_seeking() << endl;
       cout << "WILLING 2 RELOCATE: ";
-        if (profiles[i]->get_relocate() == 1)
+        if (profile[i]->get_relocate() == 1)
         {
           cout << "true" << endl;
         }
@@ -220,17 +144,13 @@ void Admin::print_profiles()
           cout << "false" << endl;
         }
       cout << "TRAITS: ";
-      profiles[i]->print_traits();
-      cout << "DESCRIPTION: " << profiles[i]->get_description() << endl;
+      profile[i]->print_traits();
+      cout << "DESCRIPTION: " << profile[i]->get_description() << endl;
 
       cout << endl;
       cout << endl;
-
-
-
     }
   }
-
 }
 
 

@@ -15,10 +15,7 @@ Interface::Interface()
 {
   quit = false;
   password = 00000;
-  for (int i = 0; i < 1; i++)
-  {
-    admin[i] = NULL;
-  }
+  Admin* a;
 }
 
 /*********************************************************************
@@ -86,55 +83,23 @@ void Interface::display_menu()
 
 /********************************************************************
 ********************************************************************/
-void Interface::create_new_admin()
+void Interface::set_admin()
 {
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
   cout << " welcome! let's set up your ADMIN account" << endl;
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
-  Admin* new_admin = new Admin;
-
   int temp_pass;
   cout << " enter a 5 digit password for your account:" << endl;
   cin >> temp_pass;
-  new_admin->set_password(temp_pass);
+  admin->set_password(temp_pass);
 
-  add_admin(new_admin);
-
-
-  //////////////////////////////////////////////
+  // test
   cout << "ADMIN TESTER STUFF" << endl;
-  cout << new_admin->get_is_admin() << endl;
-  cout << new_admin->get_password() << endl;
+  cout << admin->get_password() << endl;
 
 }
 
-/********************************************************************
-********************************************************************/
-void Interface::add_admin(Admin* new_admin)
-{
-  int admin_slot = get_avail_admin_slot();
-  if (admin_slot != -1)
-  {
-    admin[admin_slot] = new_admin;
-  }
-  else
-    cout << "no available room for new profiles" << endl;
-}
-
-/********************************************************************
-********************************************************************/
-int Interface::get_avail_admin_slot()
-{
-  for (int i = 0; i < 1; i++)
-  {
-    if (admin[i] == NULL)
-    {
-      return i;
-    }
-  }
-  return -1;
-}
 
 
 
@@ -144,6 +109,7 @@ bool Interface::run_as_admin()
 {
   quit = false;
   char temp;
+  int pass_attempt;
 //  string get_input;
 
   while (quit == false)
@@ -151,8 +117,8 @@ bool Interface::run_as_admin()
 
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
   cout << " *** ADMIN USE ONLY ***" << endl;
-  cout << " enter c if you have a current admin account" << endl;
-  cout << " enter n if you need to create a new admin account" << endl;
+  cout << " enter c if you are the current admin" << endl;
+  cout << " enter n if you are a new admin" << endl;
   cout << " enter q to quit" << endl;
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
@@ -163,7 +129,7 @@ bool Interface::run_as_admin()
     {
       for (int i = 0; i < 1; i++)
       {
-        if (admin[i] == NULL)
+        if (admin->has_password() == false)
         {
           cout << "please create an admin account before proceeding" << endl;
         }
@@ -172,12 +138,17 @@ bool Interface::run_as_admin()
           cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
           cout << " hello, CURRENT ADMIN" << endl;
           cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-          cout << " hello, CURRENT ADMIN" << endl;
       // run admin profile
+
+          do
+          {
             cout << "please enter your password to proceed" << endl;
             cout << " password:" << endl;
-            int pass_attempt;
+
             cin >> pass_attempt;
+          } while (pass_attempt != admin->get_password());
+
+            cout << "CORRECT PASSWORD" << endl; // test
 
             cout << "--------------------------------------------------------------------" << endl;
             cout << " *** ADMIN USE ONLY ***" << endl;
@@ -186,6 +157,8 @@ bool Interface::run_as_admin()
             cout << " enter * to remove existing profile" << endl;
             cout << " enter * to view matches" << endl;
             cout << "--------------------------------------------------------------------" << endl;
+
+
         }
       break;
       }
@@ -193,7 +166,7 @@ bool Interface::run_as_admin()
 
     case 'n':
     {
-      create_new_admin();
+      set_admin();
       return true;
       break;
     }
@@ -255,18 +228,8 @@ bool Interface::run_as_user()
 
       if (temp_type == 1)
       {
-
-        for (int i = 0; i < 1; i++)
-        {
-          if (admin[i] == NULL)
-          {
-            return i;
-          }
-        }
-        return -1;
-        new_admin.create_leader();
-        new_admin.print_profiles();
-
+        admin->add_leader();
+        admin->print_profiles();
       }
 
       break;

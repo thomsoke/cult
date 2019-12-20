@@ -25,18 +25,14 @@ class Interface
     bool run_as_user();
     void print_admin_welcome();
     void print_user_welcome();
-
-    void create_new_admin();
-    void add_admin(Admin* new_admin);
-    int get_avail_admin_slot();
+    void set_admin();
 
   protected:
     bool quit;
     int password;
-    Admin* admin[1];
+    Admin* admin;
 
   private:
-
 
 };
 

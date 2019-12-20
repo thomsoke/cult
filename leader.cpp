@@ -28,7 +28,6 @@ Leader::Leader(string name, int age, string description, int seeking)
     traits[i] = "";
   }
   this->seeking = seeking;
-
 }
 
 /*********************************************************************
@@ -62,26 +61,19 @@ void Leader::choose_type()
   }
 }
 
-
-
 /********************************************************************
 ********************************************************************/
 void Leader::choose_name()
 {
-
+  string input;
 
   cout << "please enter your first name" << endl;
   cout << " * input name:" << endl;
-
-cout << "name before assignment is: " << name << endl;
-string input;
+    cout << "name before assignment is: " << name << endl;    // test
 
   getline(cin, input);
-
   name = input;
-
-cout << "name after assignment is: " << name << endl;
-
+    cout << "name after assignment is: " << name << endl;   // test
 }
 
 /********************************************************************
@@ -95,7 +87,7 @@ void Leader::choose_age()
   {
     cout << " * input age:" << endl;
     cin >> input;
-  } while(input >= 101 || input <= 0);     // check valid age
+  } while (input >= 101 || input <= 0);     // check valid age
 
   age = input;
 }
@@ -194,8 +186,6 @@ void Leader::choose_seeking()
 
   }
 }
-
-
 
 /********************************************************************
 ********************************************************************/
