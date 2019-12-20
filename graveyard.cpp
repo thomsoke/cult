@@ -1,6 +1,288 @@
 
 /********************************************************************
 ********************************************************************/
+bool Interface::run_as_admin()
+{
+  quit = false;
+  char temp;
+//  string get_input;
+
+  while (quit == false)
+  {
+
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+  cout << " *** ADMIN USE ONLY ***" << endl;
+  cout << " enter c if you have a current admin account" << endl;
+  cout << " enter n if you need to create a new admin account" << endl;
+  cout << " enter q to quit" << endl;
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+  cin >> temp;
+  switch (temp)
+  {
+    case 'c':
+    {
+      for (int i = 0; i < 1; i++)
+      {
+        if (admin[i] == NULL)
+        {
+          cout << "please create an admin account before proceeding" << endl;
+        }
+        else
+        {
+          cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+          cout << " hello, CURRENT ADMIN" << endl;
+          cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+          cout << " hello, CURRENT ADMIN" << endl;
+      // run admin profile
+            cout << "please enter your password to proceed" << endl;
+            cout << " password:" << endl;
+            int pass_attempt;
+            cin >> pass_attempt;
+
+            cout << "--------------------------------------------------------------------" << endl;
+            cout << " *** ADMIN USE ONLY ***" << endl;
+            cout << " enter * to view all profiles" << endl;
+            cout << " enter * to view profiles by type" << endl;
+            cout << " enter * to remove existing profile" << endl;
+            cout << " enter * to view matches" << endl;
+            cout << "--------------------------------------------------------------------" << endl;
+        }
+      break;
+      }
+    }
+
+    case 'n':
+    {
+      create_new_admin();
+      return true;
+      break;
+    }
+
+    case 'q':
+    {
+      cout << "quitting menu" << endl;
+      return false;
+      break;
+    }
+
+    default:
+    {
+      cout << "invalid" << endl;
+      break;
+    }
+  }
+    quit = true;
+
+  }
+return true;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************************
+********************************************************************/
+bool Interface::run_as_admin()
+{
+  quit = false;
+  char temp;
+//  string get_input;
+
+  do
+  {
+
+// stuff
+
+// choose have account or make new
+//if have account - get password
+// when password correct - run admin menu
+// if no account - make new
+// return new admin to top of funct menu
+
+cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+cout << " *** ADMIN USE ONLY ***" << endl;
+cout << " enter c if you have a current admin account" << endl;
+cout << " enter n if you need to create a new admin account" << endl;
+cout << " enter q to quit" << endl;
+cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+
+/*
+  do
+  {
+    cout << "make selection: " << endl;
+    getline(cin, get_input);
+  } while(get_input != "1" && get_input != "2");
+  temp = atoi(get_input.c_str());
+
+*/
+
+
+cin >> temp;
+
+
+
+switch (temp)
+{
+  case 'c':
+  {
+    for (int i = 0; i < 1; i++)
+    {
+      if (admin[i] == NULL)
+      {
+        cout << "please create an admin account before proceeding" << endl;
+      }
+      else
+      {
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << " hello, CURRENT ADMIN" << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << " hello, CURRENT ADMIN" << endl;
+    // run admin profile
+          cout << "please enter your password to proceed" << endl;
+          cout << " password:" << endl;
+          int pass_attempt;
+          cin >> pass_attempt;
+
+
+          cout << "--------------------------------------------------------------------" << endl;
+          cout << " *** ADMIN USE ONLY ***" << endl;
+          cout << " enter * to view all profiles" << endl;
+          cout << " enter * to view profiles by type" << endl;
+          cout << " enter * to remove existing profile" << endl;
+          cout << " enter * to view matches" << endl;
+          cout << "--------------------------------------------------------------------" << endl;
+          // some shit
+      }
+    break;
+    }
+  }
+
+  case 'n':
+  {
+    create_new_admin();
+    break;
+  }
+
+  case 'q':
+  {
+    cout << "quitting menu" << endl;
+    quit = true;
+  }
+
+  default:
+  {
+    cout << "invalid" << endl;
+    break;
+  }
+
+}
+
+
+
+
+  quit = true;
+
+} while (!quit);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************************
+********************************************************************/
 {
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
   cout << " welcome, NEW ADMIN" << endl;

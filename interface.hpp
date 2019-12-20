@@ -21,8 +21,8 @@ class Interface
     Interface();
     ~Interface();
     void display_menu();
-    void run_as_admin();
-  //  void run_as_user();
+    bool run_as_admin();
+    bool run_as_user();
     void print_admin_welcome();
     void print_user_welcome();
 

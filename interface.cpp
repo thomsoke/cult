@@ -39,7 +39,7 @@ void Interface::display_menu()
 
   quit = false;
 
-  do
+  while (quit == false)
   {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -79,7 +79,7 @@ void Interface::display_menu()
         cout << "invalid" << endl;
         break;
     }
-  } while (!quit);
+  }
 }
 
 
@@ -101,12 +101,11 @@ void Interface::create_new_admin()
 
   add_admin(new_admin);
 
-  
-//////////////////////////////////////////////
-cout << "ADMIN TESTER STUFF" << endl;
-cout << new_admin->get_is_admin() << endl;
-cout << new_admin->get_password() << endl;
 
+  //////////////////////////////////////////////
+  cout << "ADMIN TESTER STUFF" << endl;
+  cout << new_admin->get_is_admin() << endl;
+  cout << new_admin->get_password() << endl;
 
 }
 
@@ -141,121 +140,176 @@ int Interface::get_avail_admin_slot()
 
 /********************************************************************
 ********************************************************************/
-void Interface::run_as_admin()
+bool Interface::run_as_admin()
 {
   quit = false;
   char temp;
 //  string get_input;
 
-  do
+  while (quit == false)
   {
 
-// stuff
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+  cout << " *** ADMIN USE ONLY ***" << endl;
+  cout << " enter c if you have a current admin account" << endl;
+  cout << " enter n if you need to create a new admin account" << endl;
+  cout << " enter q to quit" << endl;
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
-// choose have account or make new
-//if have account - get password
-// when password correct - run admin menu
-// if no account - make new
-// return new admin to top of funct menu
-
-cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-cout << " *** ADMIN USE ONLY ***" << endl;
-cout << " enter c if you have a current admin account" << endl;
-cout << " enter n if you need to create a new admin account" << endl;
-cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-
-
-/*
-  do
+  cin >> temp;
+  switch (temp)
   {
-    cout << "make selection: " << endl;
-    getline(cin, get_input);
-  } while(get_input != "1" && get_input != "2");
-  temp = atoi(get_input.c_str());
-
-*/
-
-
-cin >> temp;
-
-
-
-switch (temp)
-{
-  case 'c':
-  {
-    for (int i = 0; i < 1; i++)
+    case 'c':
     {
-      if (admin[i] == NULL)
+      for (int i = 0; i < 1; i++)
       {
-        cout << "please create an admin account before proceeding" << endl;
-      }
-      else
-      {
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        cout << " hello, CURRENT ADMIN" << endl;
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        cout << " hello, CURRENT ADMIN" << endl;
-    // run admin profile
-          cout << "please enter your password to proceed" << endl;
-          cout << " password:" << endl;
-          int pass_attempt;
-          cin >> pass_attempt;
+        if (admin[i] == NULL)
+        {
+          cout << "please create an admin account before proceeding" << endl;
+        }
+        else
+        {
+          cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+          cout << " hello, CURRENT ADMIN" << endl;
+          cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+          cout << " hello, CURRENT ADMIN" << endl;
+      // run admin profile
+            cout << "please enter your password to proceed" << endl;
+            cout << " password:" << endl;
+            int pass_attempt;
+            cin >> pass_attempt;
 
-
-          cout << "--------------------------------------------------------------------" << endl;
-          cout << " *** ADMIN USE ONLY ***" << endl;
-          cout << " enter * to view all profiles" << endl;
-          cout << " enter * to view profiles by type" << endl;
-          cout << " enter * to remove existing profile" << endl;
-          cout << " enter * to view matches" << endl;
-          cout << "--------------------------------------------------------------------" << endl;
-          // some shit
+            cout << "--------------------------------------------------------------------" << endl;
+            cout << " *** ADMIN USE ONLY ***" << endl;
+            cout << " enter * to view all profiles" << endl;
+            cout << " enter * to view profiles by type" << endl;
+            cout << " enter * to remove existing profile" << endl;
+            cout << " enter * to view matches" << endl;
+            cout << "--------------------------------------------------------------------" << endl;
+        }
+      break;
       }
-    break;
+    }
+
+    case 'n':
+    {
+      create_new_admin();
+      return true;
+      break;
+    }
+
+    case 'q':
+    {
+      cout << "quitting menu" << endl;
+      return false;
+      break;
+    }
+
+    default:
+    {
+      cout << "invalid" << endl;
+      break;
     }
   }
+    quit = true;
 
-  case 'n':
-  {
-    create_new_admin();
-    break;
   }
+return true;
 
-  default:
-  {
-    cout << "invalid" << endl;
-    break;
-  }
-
-}
-
-
-
-
-  quit = true;
-
-} while (!quit);
 }
 
 
 /********************************************************************
 ********************************************************************/
-/*
-void Interface::run_as_user()
+
+bool Interface::run_as_user()
 {
-  bool complete = false;
-  do
+  quit = false;
+  char temp;
+//  string get_input;
+
+  while (quit == false)
   {
 
-// stuff
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+  cout << " ~~~ WELCOME, CULT CATCH USER ~~~" << endl;
+  cout << " enter n to create a new user profile" << endl;
+  cout << " enter m to modify an existing user profile" << endl;
+  cout << " enter d to delete an existing user profile" << endl;
+  cout << " enter v to view an existing profile" << endl;
+  cout << " enter q to quit" << endl;
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
+  cin >> temp;
 
-  complete = true;
+  switch (temp)
+  {
+    case 'n':
+    {
+      cout << "are you a LEADER or a FOLLOWER?" << endl;
+      int temp_type;
 
-} while (!complete);
+      cout << " enter 1 for leader" << endl;
+      cout << " enter 2 for follower" << endl;
+      cin >> temp_type;
+
+      if (temp_type == 1)
+      {
+
+        for (int i = 0; i < 1; i++)
+        {
+          if (admin[i] == NULL)
+          {
+            return i;
+          }
+        }
+        return -1;
+        new_admin.create_leader();
+        new_admin.print_profiles();
+
+      }
+
+      break;
+    }
+
+    case 'm':
+    {
+cout << "test" << endl;
+      break;
+    }
+
+    case 'd':
+    {
+cout << "test" << endl;
+      break;
+    }
+
+    case 'v':
+    {
+cout << "test" << endl;
+      break;
+    }
+
+    case 'q':
+    {
+      cout << "quitting menu" << endl;
+      return false;
+      break;
+    }
+
+    default:
+    {
+      cout << "invalid" << endl;
+      break;
+    }
+  }
+  quit = true;
+
 }
-*/
+return true;
+
+}
+
 
 
 
