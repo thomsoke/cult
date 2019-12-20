@@ -33,6 +33,7 @@ class Admin
 
     int get_avail_profile_slot();
     void print_profiles();
+    void print_type_profiles(string t);
     bool check_login(string name, string pass);
 
   protected:

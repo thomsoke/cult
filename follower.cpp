@@ -10,6 +10,7 @@
 
 Follower::Follower()
 {
+  type = "follower";
   for (int i = 0; i < 6; i++)
   {
     traits[i] = "";
@@ -84,7 +85,6 @@ void Follower::choose_name()
 
   cout << "please enter your first name" << endl;
   cout << " * input name:" << endl;
-    cout << "name before assignment is: " << name << endl;    // test
 
   getline(cin, input);
   name = input;

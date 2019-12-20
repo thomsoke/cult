@@ -12,7 +12,7 @@
 Admin::Admin()
 {
   password = 0;
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 10; i++)
   {
     profile[i] = NULL;
   }
@@ -215,6 +215,54 @@ void Admin::print_profiles()
   }
 }
 
+
+/********************************************************************
+********************************************************************/
+void Admin::print_type_profiles(string t)
+{
+  cout << endl;
+  cout << endl;
+  cout << " * USER PROFILES * " << endl;
+  for (int i =0; i < 10; i++)
+  {
+    if (profile[i] != NULL)
+    {
+
+      if (profile[i]->get_type() == t)
+      {
+        //////// test profile view
+        cout << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << "* USER " << i + 1 << " *" << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << "NAME, AGE: " << profile[i]->get_name() << ", " << profile[i]->get_age() << endl;
+        cout << "TYPE: " << profile[i]->get_type() << endl;
+        cout << "SEEKING: " << profile[i]->get_seeking() << endl;
+        cout << "WILLING 2 RELOCATE: ";
+          if (profile[i]->get_relocate() == 1)
+          {
+            cout << "true" << endl;
+          }
+          else
+          {
+            cout << "false" << endl;
+          }
+        cout << "TRAITS: ";
+        profile[i]->print_traits();
+        cout << "DESCRIPTION: " << profile[i]->get_description() << endl;
+
+        cout << endl;
+        cout << endl;
+      }
+      else
+      {
+        cout << "TEST - other type profile" << endl;
+      }
+
+
+    }
+  }
+}
 
 /********************************************************************
 ********************************************************************/

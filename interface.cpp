@@ -132,7 +132,6 @@ bool Interface::run_as_admin()
           cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
           cout << " hello, CURRENT ADMIN" << endl;
           cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-      // run admin profile
 
           do
           {
@@ -160,6 +159,7 @@ bool Interface::run_as_admin()
             {
               case 'v':
                 cout << "viewing all profiles" << endl;
+                admin->print_profiles();
                 break;
 
               case 't':
@@ -326,7 +326,6 @@ void Interface::print_admin_welcome()
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
   cout << endl;
 }
-
 
 
 /********************************************************************
