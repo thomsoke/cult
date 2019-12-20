@@ -66,7 +66,7 @@ bool Admin::has_password()
 }
 
 /********************************************************************
-** adds new profile to profile array at index
+** adds new leader to profile array at index
 ********************************************************************/
 //void Admin::add_leader(Leader* leader)
 void Admin::add_leader()
@@ -113,9 +113,7 @@ int Admin::get_avail_profile_slot()
 }
 
 /********************************************************************
-** prints all profiles
 ********************************************************************/
-///// need for each type???
 void Admin::print_profiles()
 {
   cout << endl;
@@ -154,14 +152,31 @@ void Admin::print_profiles()
 }
 
 
-
-
-
-
-
-
-
-
+/********************************************************************
+********************************************************************/
+bool Admin::check_login(string name, string pass)
+{
+  for (int i = 0; i < 10; i++)
+  {
+    if (profile[i]->get_username() == name)
+    {
+      cout << "correct username" << endl;
+      if (profile[i]->get_userpass() == pass)
+      {
+        cout << "correct password" << endl;
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    else
+    {
+      return false;
+    }
+  }
+}
 
 
 

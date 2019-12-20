@@ -64,7 +64,7 @@ void Interface::display_menu()
 
       case 2:
         cout << "running as user" << endl;
-//        run_as_user();
+        run_as_user();
         break;
 
       case 3:
@@ -194,62 +194,75 @@ return true;
 
 /********************************************************************
 ********************************************************************/
-
 bool Interface::run_as_user()
 {
   quit = false;
+  bool login = false;
   char temp;
-//  string get_input;
+  string name_attempt;
+  string pass_attempt;
 
   while (quit == false)
   {
 
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-  cout << " ~~~ WELCOME, CULT CATCH USER ~~~" << endl;
+  cout << " ~~~ WELCOME TO CULT CATCH ~~~" << endl;
+  cout << " enter c if you are a current user" << endl;
   cout << " enter n to create a new user profile" << endl;
-  cout << " enter m to modify an existing user profile" << endl;
-  cout << " enter d to delete an existing user profile" << endl;
-  cout << " enter v to view an existing profile" << endl;
   cout << " enter q to quit" << endl;
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
-  cin >> temp;
 
+  cin >> temp;
   switch (temp)
   {
+    case 'c':
+    {
+      for (int i = 0; i < 1; i++)
+      {
+
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << " ~~~ HELLO, CULT CATCH USER ~~~" << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+        do
+        {
+          cout << "please enter your username and password to log in" << endl;
+          cout << " username:" << endl;
+            getline(cin, name_attempt);
+          cout << " password:" << endl;
+            getline(cin, pass_attempt);
+
+            if (admin->check_login(name_attempt, pass_attempt) == true)
+            {
+              login = true;
+            }
+            else
+            {
+              login = false;
+            }
+
+        } while (login == false);
+
+        cout << "LOGIN SUCCESSFUL" << endl; // test
+
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << " ~~~ WELCOME, CULT CATCH USER ~~~" << endl;
+        cout << " enter m to view matches" << endl;
+        cout << " enter v to view your profile" << endl;
+        cout << " enter e to edit your profile" << endl;
+        cout << " enter d to delete your profile" << endl;
+        cout << " enter q to quit" << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+      break;
+      }
+    }
+
     case 'n':
     {
-      cout << "are you a LEADER or a FOLLOWER?" << endl;
-      int temp_type;
 
-      cout << " enter 1 for leader" << endl;
-      cout << " enter 2 for follower" << endl;
-      cin >> temp_type;
-
-      if (temp_type == 1)
-      {
-        admin->add_leader();
-        admin->print_profiles();
-      }
-
-      break;
-    }
-
-    case 'm':
-    {
-cout << "test" << endl;
-      break;
-    }
-
-    case 'd':
-    {
-cout << "test" << endl;
-      break;
-    }
-
-    case 'v':
-    {
-cout << "test" << endl;
+      return true;
       break;
     }
 
@@ -266,13 +279,12 @@ cout << "test" << endl;
       break;
     }
   }
-  quit = true;
+    quit = true;
 
-}
+  }
 return true;
 
 }
-
 
 
 

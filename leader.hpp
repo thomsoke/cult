@@ -30,6 +30,9 @@ class Leader : public Profile
     virtual void choose_traits();
     virtual void choose_seeking();
 
+    virtual string get_username();
+    virtual string get_userpass();
+
     virtual string get_type();
     virtual string get_name();
     virtual int get_age();

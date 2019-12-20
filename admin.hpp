@@ -28,6 +28,7 @@ class Admin
     void add_leader();
     int get_avail_profile_slot();
     void print_profiles();
+    bool check_login(string name, string pass);
 
   protected:
 
