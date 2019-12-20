@@ -4,7 +4,6 @@
 ** date: 12-16-2019
 ** description: follower class header - child of profile
 ********************************************************************/
-/*
 #ifndef FOLLOWER_HPP
 #define FOLLOWER_HPP
 
@@ -19,9 +18,10 @@ class Follower : public Profile
 {
   public:
     Follower();
-    Follower(string name, int age, string description, int seeking);
+    Follower(string t);
     ~Follower();
 
+    virtual void choose_login();
     virtual void choose_type();
     virtual void choose_name();
     virtual void choose_age();
@@ -29,6 +29,9 @@ class Follower : public Profile
     virtual void choose_description();
     virtual void choose_traits();
     virtual void choose_seeking();
+
+    virtual string get_username();
+    virtual string get_userpass();
 
     virtual string get_type();
     virtual string get_name();
@@ -47,4 +50,3 @@ class Follower : public Profile
 };
 
 #endif
-*/

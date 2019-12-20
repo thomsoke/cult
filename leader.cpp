@@ -8,26 +8,12 @@
 
 #include <iostream>
 
-/*********************************************************************
-** function: default constructor
-*********************************************************************/
 Leader::Leader()
 {
-}
-
-/*********************************************************************
-** function: parameterized constructor
-*********************************************************************/
-Leader::Leader(string name, int age, string description, int seeking)
-{
-  this->name = name;
-  this->age = age;
-  this->description = description;
   for (int i = 0; i < 6; i++)
   {
     traits[i] = "";
   }
-  this->seeking = seeking;
 }
 
 /*********************************************************************

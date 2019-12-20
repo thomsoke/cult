@@ -1,5 +1,5 @@
-cult: main.o profile.o leader.o admin.o interface.o
-	g++ main.o profile.o leader.o admin.o interface.o -o cult
+cult: main.o profile.o leader.o follower.o admin.o interface.o
+	g++ main.o profile.o leader.o follower.o admin.o interface.o -o cult
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -9,6 +9,9 @@ profile.o: profile.cpp
 
 leader.o: leader.cpp
 	g++ -c leader.cpp
+
+follower.o: follower.cpp
+	g++ -c follower.cpp
 
 admin.o: admin.cpp
 	g++ -c admin.cpp

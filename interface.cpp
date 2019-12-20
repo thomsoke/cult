@@ -79,8 +79,6 @@ void Interface::display_menu()
   }
 }
 
-
-
 /********************************************************************
 ********************************************************************/
 void Interface::set_admin()
@@ -97,11 +95,7 @@ void Interface::set_admin()
   // test
   cout << "ADMIN TESTER STUFF" << endl;
   cout << admin->get_password() << endl;
-
 }
-
-
-
 
 /********************************************************************
 ********************************************************************/
@@ -110,7 +104,6 @@ bool Interface::run_as_admin()
   quit = false;
   char temp;
   int pass_attempt;
-//  string get_input;
 
   while (quit == false)
   {
@@ -261,7 +254,7 @@ bool Interface::run_as_user()
 
     case 'n':
     {
-
+      admin->add_new_profile();
       return true;
       break;
     }

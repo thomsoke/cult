@@ -18,7 +18,7 @@ class Leader : public Profile
 {
   public:
     Leader();
-    Leader(string name, int age, string description, int seeking);
+    Leader(string t);
     ~Leader();
 
     virtual void choose_login();

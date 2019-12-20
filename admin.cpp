@@ -66,9 +66,41 @@ bool Admin::has_password()
 }
 
 /********************************************************************
+********************************************************************/
+void Admin::add_new_profile()
+{
+  int temp;
+
+  cout << "please choose your cult orientation:" << endl;
+  cout << "  enter 1 to identify yourself as a leader" << endl;
+  cout << "  enter 2 to identify yourself as a follower" << endl;
+
+  cin >> temp;
+
+  switch (temp)
+  {
+    case 1:
+    {
+      add_leader();
+      break;
+    }
+    case 2:
+    {
+      add_follower();
+      break;
+    }
+
+    default:
+    {
+      cout << "invalid" << endl;
+      break;
+    }
+  }
+}
+
+/********************************************************************
 ** adds new leader to profile array at index
 ********************************************************************/
-//void Admin::add_leader(Leader* leader)
 void Admin::add_leader()
 {
   int profile_slot = get_avail_profile_slot();
@@ -85,7 +117,35 @@ void Admin::add_leader()
       cout << "test after name" << endl;
     profile[profile_slot]->choose_age();
       cout << "test after age" << endl;
-    profile[profile_slot]->choose_type();
+    profile[profile_slot]->choose_seeking();
+    profile[profile_slot]->choose_relocate();
+    profile[profile_slot]->choose_traits();
+    profile[profile_slot]->choose_description();
+
+  }
+  else
+    cout << "no available room for new profiles" << endl;
+}
+
+/********************************************************************
+** adds new follower to profile array at index
+********************************************************************/
+void Admin::add_follower()
+{
+  int profile_slot = get_avail_profile_slot();
+  if (profile_slot != -1)
+  {
+    profile[profile_slot] = new Follower;
+
+    cout << endl;
+    cout << endl;
+    cout << " *** create your profile *** " << endl;
+    cout << endl;
+
+    profile[profile_slot]->choose_name();
+      cout << "test after name" << endl;
+    profile[profile_slot]->choose_age();
+      cout << "test after age" << endl;
     profile[profile_slot]->choose_seeking();
     profile[profile_slot]->choose_relocate();
     profile[profile_slot]->choose_traits();

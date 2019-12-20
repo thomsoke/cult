@@ -12,6 +12,7 @@
 
 #include "profile.hpp"
 #include "leader.hpp"
+#include "follower.hpp"
 
 using namespace std;
 
@@ -25,7 +26,11 @@ class Admin
     int get_password();
     void set_password(int p);
     bool has_password();
+
+    void add_new_profile();
     void add_leader();
+    void add_follower();
+
     int get_avail_profile_slot();
     void print_profiles();
     bool check_login(string name, string pass);
