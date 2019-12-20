@@ -48,9 +48,9 @@ void Interface::display_menu()
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
+    cout << "make selection: " << endl;
     do
     {
-      cout << "make selection: " << endl;
       getline(cin, get_input);
     } while(get_input != "1" && get_input != "2");
     temp = atoi(get_input.c_str());
@@ -272,18 +272,6 @@ cout << "test" << endl;
 return true;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

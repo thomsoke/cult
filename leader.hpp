@@ -20,7 +20,8 @@ class Leader : public Profile
     Leader();
     Leader(string name, int age, string description, int seeking);
     ~Leader();
-    
+
+    virtual void choose_login();
     virtual void choose_type();
     virtual void choose_name();
     virtual void choose_age();

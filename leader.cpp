@@ -37,6 +37,35 @@ Leader::~Leader()
 {
 }
 
+
+/********************************************************************
+********************************************************************/
+void Leader::choose_login()
+{
+  string name;
+  string pass;
+
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+  cout << "please choose your login information" << endl;
+  cout << "--------------------------------------------------------------------" << endl;
+
+  cout << "please enter a username" << endl;
+  cout << " * input username:" << endl;
+  getline(cin, name);
+  username = name;
+  cout << "username after assignment is: " << username << endl;   // test
+  cout << endl;
+
+  cout << "please enter a password" << endl;
+  cout << " * input password:" << endl;
+  getline(cin, pass);
+  userpass = pass;
+  cout << "password after assignment is: " << userpass << endl;   // test
+  cout << endl;
+
+}
+
+
 /********************************************************************
 ********************************************************************/
 void Leader::choose_type()

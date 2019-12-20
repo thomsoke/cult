@@ -15,6 +15,7 @@ using namespace std;
 class Profile
 {
   public:
+    virtual void choose_login() = 0;
     virtual void choose_type() = 0;
     virtual void choose_name() = 0;
     virtual void choose_age() = 0;
@@ -33,6 +34,8 @@ class Profile
     virtual string get_seeking() = 0;
 
   protected:
+    string username;
+    string userpass;
     string type;
     string name;
     int age;
