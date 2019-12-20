@@ -36,7 +36,7 @@ void Interface::display_menu()
 
   quit = false;
 
-  while (quit == false)
+  do
   {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -52,7 +52,7 @@ void Interface::display_menu()
     do
     {
       getline(cin, get_input);
-    } while(get_input != "1" && get_input != "2");
+    } while(get_input != "1" && get_input != "2" && get_input != "3");
     temp = atoi(get_input.c_str());
 
     switch (temp)
@@ -76,7 +76,7 @@ void Interface::display_menu()
         cout << "invalid" << endl;
         break;
     }
-  }
+  } while (!quit);
 }
 
 /********************************************************************
@@ -104,6 +104,7 @@ bool Interface::run_as_admin()
   quit = false;
   char temp;
   int pass_attempt;
+  string get_input;
 
   while (quit == false)
   {
@@ -145,11 +146,44 @@ bool Interface::run_as_admin()
 
             cout << "--------------------------------------------------------------------" << endl;
             cout << " *** ADMIN USE ONLY ***" << endl;
-            cout << " enter * to view all profiles" << endl;
-            cout << " enter * to view profiles by type" << endl;
-            cout << " enter * to remove existing profile" << endl;
-            cout << " enter * to view matches" << endl;
+            cout << " enter v to view all profiles" << endl;
+            cout << " enter t to view profiles by type" << endl;
+            cout << " enter r to remove existing profile" << endl;
+            cout << " enter m to view matches" << endl;
+            cout << " enter q to quit" << endl;
             cout << "--------------------------------------------------------------------" << endl;
+
+            cout << "make selection: " << endl;
+            cin >> temp;
+
+            switch (temp)
+            {
+              case 'v':
+                cout << "viewing all profiles" << endl;
+                break;
+
+              case 't':
+                cout << "viewing profiles by type" << endl;
+                break;
+
+              case 'r':
+                cout << "select profile to remove" << endl;
+                break;
+
+              case 'm':
+                cout << "view all matches" << endl;
+                break;
+
+              case 'q':
+                quit = true;
+                cout << "quitting game" << endl;
+                break;
+
+              default:
+                cout << "invalid" << endl;
+                break;
+            }
+
 
 
         }
