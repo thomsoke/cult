@@ -32,7 +32,6 @@ class Interface
 
   protected:
     bool quit;
-  //  bool curr_admin;
     int password;
     Admin* admin[1];
 

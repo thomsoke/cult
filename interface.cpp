@@ -14,7 +14,6 @@
 Interface::Interface()
 {
   quit = false;
-//  curr_admin = false;
   password = 00000;
   for (int i = 0; i < 1; i++)
   {
@@ -90,17 +89,24 @@ void Interface::display_menu()
 void Interface::create_new_admin()
 {
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-  cout << " welcome, ADMIN" << endl;
-  cout << " let's set up your account" << endl;
+  cout << " welcome! let's set up your ADMIN account" << endl;
   cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
   Admin* new_admin = new Admin;
-  int temp_pass;
 
+  int temp_pass;
   cout << " enter a 5 digit password for your account:" << endl;
+  cin >> temp_pass;
   new_admin->set_password(temp_pass);
 
   add_admin(new_admin);
+
+  
+//////////////////////////////////////////////
+cout << "ADMIN TESTER STUFF" << endl;
+cout << new_admin->get_is_admin() << endl;
+cout << new_admin->get_password() << endl;
+
 
 }
 
@@ -178,73 +184,41 @@ switch (temp)
 {
   case 'c':
   {
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    cout << " hello, CURRENT ADMIN" << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    cout << " hello, CURRENT ADMIN" << endl;
-// run admin profile
-      cout << "please enter your password to proceed" << endl;
-      cout << " password:" << endl;
-      int pass_attempt;
-      cin >> pass_attempt;
-/*
-      if (admin.get_is_admin())
-        if (pass_attempt != admin.get_password())
-        {
-          cout << "wrong password" << endl;
-        }
-        else if (pass_attempt != admin.get_password())
-        {
-          cout << "you got it right dooderino" << endl;
-        }
-        else
-        {
-          cout << "whatever" << endl;
-        }
-*/
+    for (int i = 0; i < 1; i++)
+    {
+      if (admin[i] == NULL)
+      {
+        cout << "please create an admin account before proceeding" << endl;
+      }
+      else
+      {
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << " hello, CURRENT ADMIN" << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << " hello, CURRENT ADMIN" << endl;
+    // run admin profile
+          cout << "please enter your password to proceed" << endl;
+          cout << " password:" << endl;
+          int pass_attempt;
+          cin >> pass_attempt;
 
 
-
-      cout << "--------------------------------------------------------------------" << endl;
-      cout << " *** ADMIN USE ONLY ***" << endl;
-      cout << " enter * to view all profiles" << endl;
-      cout << " enter * to view profiles by type" << endl;
-      cout << " enter * to remove existing profile" << endl;
-      cout << " enter * to view matches" << endl;
-      cout << "--------------------------------------------------------------------" << endl;
-      // some shit
-
+          cout << "--------------------------------------------------------------------" << endl;
+          cout << " *** ADMIN USE ONLY ***" << endl;
+          cout << " enter * to view all profiles" << endl;
+          cout << " enter * to view profiles by type" << endl;
+          cout << " enter * to remove existing profile" << endl;
+          cout << " enter * to view matches" << endl;
+          cout << "--------------------------------------------------------------------" << endl;
+          // some shit
+      }
     break;
+    }
   }
 
   case 'n':
   {
-
-
     create_new_admin();
-
-
-    /*
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    cout << " welcome, NEW ADMIN" << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-      int temp_pass;
-      cout << " enter a 5 digit password for your account:" << endl;
-
-      do
-      {
-        cin >> temp_pass;
-      } while (temp_pass >= 99999 && temp_pass <= 00000);
-
-      Admin a(temp_pass);
-
-
-      cout << a.get_password();
-
-*/
-
-
-
     break;
   }
 
