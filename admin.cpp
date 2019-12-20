@@ -108,6 +108,8 @@ void Admin::add_leader()
   {
     profile[profile_slot] = new Leader;
 
+    profile[profile_slot]->choose_login();
+
     cout << endl;
     cout << endl;
     cout << " *** create your profile *** " << endl;
@@ -136,6 +138,8 @@ void Admin::add_follower()
   if (profile_slot != -1)
   {
     profile[profile_slot] = new Follower;
+
+    profile[profile_slot]->choose_login();
 
     cout << endl;
     cout << endl;
@@ -232,9 +236,7 @@ bool Admin::check_login(string name, string pass)
       }
     }
     else
-    {
       return false;
-    }
   }
 }
 
