@@ -19,18 +19,6 @@ Admin::Admin()
 }
 
 /*********************************************************************
-** function: parameterized constructor
-*********************************************************************/
-Admin::Admin(int p)
-{
-  password = p;
-  for (int i = 0; i < 10; i++)
-  {
-    profile[i] = NULL;
-  }
-}
-
-/*********************************************************************
 ** function: destructor
 *********************************************************************/
 Admin::~Admin()
@@ -187,7 +175,6 @@ void Admin::print_profiles()
   {
     if (profile[i] != NULL)
     {
-
       //////// test profile view
       cout << endl;
       cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -227,7 +214,6 @@ void Admin::print_type_profiles(string t)
   {
     if (profile[i] != NULL)
     {
-
       if (profile[i]->get_type() == t)
       {
         //////// test profile view
@@ -258,8 +244,6 @@ void Admin::print_type_profiles(string t)
       {
         cout << "TEST - other type profile" << endl;
       }
-
-
     }
   }
 }
